@@ -99,6 +99,7 @@ module Elrond
       end
       
       include ::Elrond::Api::Endpoints::Node
+      include ::Elrond::Api::Endpoints::Address
     
     end
   end

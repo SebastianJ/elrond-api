@@ -7,6 +7,7 @@ require "elrond/api/version"
 require "elrond/api/configuration"
 
 require "elrond/api/endpoints/node"
+require "elrond/api/endpoints/address"
 
 require "elrond/api/client"
 

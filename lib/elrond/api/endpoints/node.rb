@@ -3,14 +3,28 @@ module Elrond
     module Endpoints
       module Node
         
+        def address(options: {})
+          get("/node/address", options: options)&.body&.fetch("address", nil)
+        end
+        
         def heartbeat(options: {})
-          response              =   get("/node/heartbeatstatus", options: options)          
-          return response&.body
+          get("/node/heartbeatstatus", options: options)&.body&.fetch("message", [])
+        end
+        
+        def start(options: {})
+          get("/node/start", options: options)&.body&.fetch("message", nil)
+        end
+        
+        def statistics(options: {})
+          get("/node/statistics", options: options)&.body&.fetch("statistics", {})
         end
         
         def status(options: {})
-          response              =   get("/node/status", options: options)          
-          return response&.body
+          get("/node/status", options: options)&.body&.fetch("details", {})
+        end
+        
+        def stop(options: {})
+          get("/node/stop", options: options)&.body&.fetch("message", nil)
         end
         
       end
