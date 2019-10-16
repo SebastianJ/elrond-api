@@ -20,7 +20,7 @@ module Elrond
         end
         
         def status(options: {})
-          get("/node/status", options: options)&.body&.fetch("details", {})
+          get("/node/status", options: options)&.body
         end
         
         def stop(options: {})
