@@ -4,27 +4,33 @@ module Elrond
       module Node
         
         def address(options: {})
-          get("/node/address", options: options)&.body&.fetch("address", nil)
+          response    =   get("/node/address", options: options)&.body
+          response    =   response.fetch("address", nil) if response && response.is_a?(Hash)
         end
         
         def heartbeat(options: {})
-          get("/node/heartbeatstatus", options: options)&.body&.fetch("message", [])
+          response    =   get("/node/heartbeatstatus", options: options)&.body
+          response    =   response.fetch("message", []) if response && response.is_a?(Hash)
         end
         
         def start(options: {})
-          get("/node/start", options: options)&.body&.fetch("message", nil)
+          response    =   get("/node/start", options: options)&.body
+          response    =   response.fetch("message", nil) if response && response.is_a?(Hash)
         end
         
         def statistics(options: {})
-          get("/node/statistics", options: options)&.body&.fetch("statistics", {})
+          response    =   get("/node/statistics", options: options)&.body
+          response    =   response.fetch("statistics", {}) if response && response.is_a?(Hash)
         end
         
         def status(options: {})
-          get("/node/status", options: options)&.body
+          response    =   get("/node/status", options: options)&.body
+          response    =   response.fetch("details", {}) if response && response.is_a?(Hash)
         end
         
         def stop(options: {})
-          get("/node/stop", options: options)&.body&.fetch("message", nil)
+          response    =   get("/node/stop", options: options)&.body
+          response    =   response.fetch("message", nil) if response && response.is_a?(Hash)
         end
         
       end
