@@ -6,10 +6,14 @@ require "logger"
 require "elrond/api/version"
 require "elrond/api/configuration"
 
-require "elrond/api/endpoints/node"
-require "elrond/api/endpoints/address"
+require "elrond/api/node/endpoints/nodes"
+require "elrond/api/node/endpoints/address"
 
-require "elrond/api/client"
+require "elrond/api/node/client"
+
+require "elrond/api/wallet/endpoints/address"
+require "elrond/api/wallet/endpoints/transactions"
+require "elrond/api/wallet/client"
 
 module Elrond
   module Api
