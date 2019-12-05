@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "elrond/api"
+
+addresses   =   File.readlines(File.join(File.dirname(__FILE__), "../data/addresses.txt")).collect(&:strip).uniq
+
+client      =   Elrond::Api::Wallet::Client.new
+data        =   {}
+sum         =   0
+
+addresses.each do |address|
+  result                    =   client.address(address)
+  sum                      +=   result[:balance]
+  data[result[:address]]    =   result[:balance]
+  
+  puts "Address #{result[:address]} has a balance of #{result[:balance]}"
+end
+
+puts "\nTotal balance in all wallets: #{sum}"
+
+data.each do |address, balance|
+  puts "Address #{address} has a balance of #{balance}"
+end
