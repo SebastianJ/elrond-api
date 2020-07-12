@@ -13,7 +13,7 @@ module Elrond
           set_headers
           set_connection
         end
-      
+
         def set_connection
           self.connection       =   ::Faraday.new(self.configuration.endpoints.dig(:wallet, :host)) do |builder|
             builder.options[:timeout]         =   self.configuration.faraday.fetch(:timeout, nil)      if self.configuration.faraday.fetch(:timeout, nil)

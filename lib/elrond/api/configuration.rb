@@ -6,11 +6,11 @@ module Elrond
       def initialize
         self.endpoints    =   {
           wallet: {
-            host: "https://wallet-api.elrond.com",
+            host: "https://api.elrond.com",
             headers: {
               "Host"        =>  "wallet-api.elrond.com",
-              "origin"      =>  "https://testnet.elrond.com",
-              "referer"     =>  "https://testnet.elrond.com/"
+              "origin"      =>  "https://explorer.elrond.com",
+              "referer"     =>  "https://explorer.elrond.com/"
             }
           }
         }
